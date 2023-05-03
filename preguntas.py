@@ -21,22 +21,22 @@ def pregunta_01():
     # Lea el archivo `amazon_cells_labelled.tsv` y cree un DataFrame usando pandas.
     # Etiquete la primera columna como `msg` y la segunda como `lbl`. Esta función
     # retorna el dataframe con las dos columnas.
-    df = ____(
-        ____,
-        sep=____,
-        header=____,
-        names=____,
+    df = pd.read_csv(
+        'amazon_cells_labelled.txt',
+        sep='\t',
+        header=None,
+        names=['mensaje','numero'],
     )
 
     # Separe los grupos de mensajes etiquetados y no etiquetados.
-    df_tagged = ____[____["____"].____()]
-    df_untagged = ____[____["____"].____()]
+    df_tagged = df[df["numero"].notnull()]
+    df_untagged = df[df["numero"].isna()]
 
-    x_tagged = ____["____"]
-    y_tagged = ____["____"]
+    x_tagged = df["mensaje"]
+    y_tagged = df["numero"]
 
-    x_untagged = ____["____"]
-    y_untagged = ____["____"]
+    x_untagged = df["mesanje"]
+    y_untagged = df["numero"]
 
     # Retorne los grupos de mensajes
     return x_tagged, y_tagged, x_untagged, y_untagged
@@ -49,7 +49,7 @@ def pregunta_02():
     """
 
     # Importe train_test_split
-    from ____ import ____
+    from sklearn.model_selection import train_test_split
 
     # Cargue los datos generados en la pregunta 01.
     x_tagged, y_tagged, _, _ = pregunta_01()
