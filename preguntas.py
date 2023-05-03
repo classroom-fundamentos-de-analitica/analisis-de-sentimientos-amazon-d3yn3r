@@ -29,17 +29,17 @@ def pregunta_01():
     )
 
     # Separe los grupos de mensajes etiquetados y no etiquetados.
-    df_tagged = df[df["msg"].notnull()]
+    df_tagged = df[df["lbl"].notnull()]
     df_untagged = df[df["lbl"].isnull()]
 
-    x_tagged = df["msg"]
-    y_tagged = df["lbl"]
+    x_tagged = df_tagged["msg"]
+    y_tagged = df_tagged["lbl"]
 
-    x_untagged = df["msg"]
-    y_untagged = df["lbl"]
+    x_untagged = df_untagged["msg"]
+    y_untagged = df_untagged["lbl"]
 
     # Retorne los grupos de mensajes
-    return x_tagged, y_tagged, x_untagged, y_untagged
+    return x_tagged.shape, y_tagged.shape, x_untagged.shape, y_untagged.shape
 
 def pregunta_02():
     """
