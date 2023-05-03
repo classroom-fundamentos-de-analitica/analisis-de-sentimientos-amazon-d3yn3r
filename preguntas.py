@@ -112,7 +112,7 @@ def pregunta_04():
     # límite superior para la frecuencia de palabras es del 100% y un límite
     # inferior de 5 palabras. Solo deben analizarse palabras conformadas por
     # letras.
-    countVectorizer = countVectorizer(
+    countVectorizer = CountVectorizer(
         analyzer=analyzer,
         lowercase=True,
         stop_words='english',
@@ -139,7 +139,7 @@ def pregunta_04():
 
     # Defina una instancia de GridSearchCV con el pipeline y el diccionario de
     # parámetros. Use cv = 5, y "accuracy" como métrica de evaluación
-    gridSearchCV = gridSearchCV(
+    gridSearchCV = GridSearchCV(
         estimator=pipeline,
         param_grid=param_grid,
         cv=5,
