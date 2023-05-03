@@ -112,11 +112,11 @@ def pregunta_04():
     # límite superior para la frecuencia de palabras es del 100% y un límite
     # inferior de 5 palabras. Solo deben analizarse palabras conformadas por
     # letras.
-    countVectorizer = countVectorizer(
+    countVectorizer = CountVectorizer(
         analyzer=analyzer,
         lowercase=True,
         stop_words='english',
-        token_pattern='word',
+        token_pattern='r"\b[a-z]+\b"',
         binary=True,
         max_df=1.0,
         min_df=5,
@@ -134,7 +134,7 @@ def pregunta_04():
     # considerar 10 valores entre 0.1 y 1.0 para el parámetro alpha de
     # BernoulliNB.
     param_grid = {
-        "BernoulliNB_alpha": np.arange(0.1,1.1 , 0.1),
+        "BernoulliNB_alpha": np.arange(0.1, 1, 10)
     }
 
     # Defina una instancia de GridSearchCV con el pipeline y el diccionario de
