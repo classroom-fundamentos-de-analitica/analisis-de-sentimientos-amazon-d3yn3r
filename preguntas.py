@@ -35,7 +35,7 @@ def pregunta_01():
     x_tagged = df["mensaje"]
     y_tagged = df["numero"]
 
-    x_untagged = df["mesanje"]
+    x_untagged = df["mensaje"]
     y_untagged = df["numero"]
 
     # Retorne los grupos de mensajes
